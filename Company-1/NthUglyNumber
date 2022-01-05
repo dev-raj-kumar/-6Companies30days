@@ -1,0 +1,21 @@
+class Solution{
+public:	
+	// #define ull unsigned long long
+	/* Function to get the nth ugly number*/
+	ull getNthUglyNo(int n) {
+	    // code here
+	    vector<ull> v(n);
+	    v[0]=1;
+	    int x = 0;int y = 0;int z = 0;
+	    for(int i = 1;i<n;i++){
+	        v[i]=min({v[x]*2,v[y]*3,v[z]*5});
+	        if(v[i] == v[x]*2)
+	        x++;
+	        if(v[i] == v[y]*3)
+	        y++;
+	        if(v[i] == v[z]*5)
+	        z++;
+	    }
+	    return v[n-1];
+	}
+};
